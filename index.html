@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Pronostici MotoGP</title>
+<style>
+    body {
+        font-family: Arial;
+        background: #111;
+        color: white;
+        padding: 20px;
+    }
+    .container {
+        max-width: 600px;
+        margin: auto;
+    }
+    select, button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: none;
+    }
+    button {
+        background: #00c853;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Pronostico Gara</h2>
+
+    <form action="https://formsubmit.co/nicolab79@gmail.com" method="POST">
+
+        <!-- Evita captcha -->
+        <input type="hidden" name="_captcha" value="false">
+
+        <!-- Oggetto mail -->
+        <input type="hidden" name="_subject" value="Nuovo Pronostico MotoGP">
+
+        <label>Chi compila:</label>
+        <select name="Utente" required>
+            <option>Nicola</option>
+            <option>Luca</option>
+            <option>Gianluca</option>
+            <option>Davide</option>
+            <option>Monica</option>
+        </select>
+
+        <label>1° posto</label>
+        <select name="1_posto" id="p1"></select>
+
+        <label>2° posto</label>
+        <select name="2_posto" id="p2"></select>
+
+        <label>3° posto</label>
+        <select name="3_posto" id="p3"></select>
+
+        <label>Pole Position</label>
+        <select name="Pole" id="pole"></select>
+
+        <label>Sprint Race</label>
+        <select name="Sprint" id="sprint"></select>
+
+        <label>DNF</label>
+        <select name="DNF" id="dnf"></select>
+
+        <button type="submit">Invia</button>
+    </form>
+</div>
+
+<script>
+const piloti = [
+    "Jorge Martin - 89",
+    "Luca Marini - 10",
+    "Maverick Vinales - 12",
+    "Fabio Quartararo - 20",
+    "Franco Morbidelli - 21",
+    "Enea Bastianini - 23",
+    "Johann Zarco - 25",
+    "Raul Fernandez - 25",
+    "Brad Binder - 33",
+    "Toprak Razgatlioglu - 07",
+    "Joan Mir - 36",
+    "Pedro Acosta - 37",
+    "Alex Rins - 42",
+    "Jack Miller - 43",
+    "Fabio Di Giannantonio - 49",
+    "Fermin Aldeguer - 54",
+    "Francesco Bagnaia - 63",
+    "Marco Bezzecchi - 72",
+    "Alex Marquez - 73",
+    "Ai Ogura - 79",
+    "Diogo Moreira - 11",
+    "Marc Marquez - 93"
+];
+
+function riempi(id) {
+    const select = document.getElementById(id);
+    piloti.forEach(p => {
+        let opt = document.createElement("option");
+        opt.value = p;
+        opt.textContent = p;
+        select.appendChild(opt);
+    });
+}
+
+["p1","p2","p3","pole","sprint","dnf"].forEach(riempi);
+</script>
+
+</body>
+</html>
